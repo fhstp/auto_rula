@@ -1,6 +1,6 @@
 name: auto_rula
 description: A starting point for Dart libraries or applications.
-version: 1.0.5
+version: 1.0.6
 repository: https://github.com/fhstp/auto_rula
 
 environment:
@@ -13,3 +13,5 @@ dev_dependencies:
   very_good_analysis: ^8.0.0
 dependencies:
   meta: ^1.16.0
+  fast_immutable_collections: ^11.1.0
+  vector_math: ^2.1.0
