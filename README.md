@@ -24,7 +24,7 @@ In terms of code, an example pipeline could look like this:
 ```dart
 // Get a pose from somewhere, for example by extracting it from an image
 // using computer vision
-final Pose pose = getPose()
+final Pose pose = getPose();
 
 // Normalize the pose
 final NormalizedPose normalized = NormalizedPose.normalize(pose);
@@ -43,6 +43,14 @@ final RulaSheet sheet = RulaSheet.fromAngles(angles);
 
 // Finally we can score the sheet.
 final RulaScores scores = RulaScores.calculateFor(sheet);
+```
+
+For convenience, the package also includes a method which contains this
+pipeline if you are only interested in the final score result.
+
+```dart
+final pose = getPose();
+final scores = pose.score();
 ```
 
 ## License

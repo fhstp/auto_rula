@@ -367,3 +367,27 @@ class RulaScores {
   /// Expected range is [1; 7]
   final int fullScore;
 }
+
+/// Utility extension for scoring a [Pose] directly.
+extension ScoringExt on Pose {
+  /// Calculates the [RulaScores] for this [Pose].
+  ///
+  /// This is a convenience method which contains the logic of a full
+  /// calculation pipeline as described in the README. Use this method
+  /// if you are not interested in intermediate results and only care about
+  /// the final score.
+  RulaScores score() {
+    final normalized = NormalizedPose.normalize(this);
+
+    final angles = PoseAngles.calculate(
+      world: normalized,
+      coronal: ProjectedPose.coronal(normalized),
+      sagittal: ProjectedPose.sagittal(normalized),
+      transverse: ProjectedPose.transverse(normalized),
+    );
+
+    final sheet = RulaSheet.fromAngles(angles);
+
+    return RulaScores.calculateFor(sheet);
+  }
+}
