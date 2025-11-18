@@ -1,3 +1,4 @@
+export 'src/angles.dart';
 export 'src/degree.dart';
 export 'src/normalization.dart';
 export 'src/pair.dart';
