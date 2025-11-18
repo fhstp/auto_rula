@@ -1,9 +1,11 @@
 # auto_rula
 
 _auto_rula_ implements the functionality for scoring a pose in 3D space
-using the RULA system.
+using the [RULA](https://ergo-plus.com/rula-assessment-tool-guide/) system.
 
-A summary of the systems steps are described below:
+## Usage
+
+The main steps for scoring a pose are:
 
 1. **Normalize the pose**: This step normalizes the position, rotation and
 scale of the pose in order to the following processing easier.
@@ -16,8 +18,6 @@ we can now calculate angles of all RULA relevant joints.
 a modelled RULA sheet, just like in real life.
 5. **Score rula-sheet**: We can now run the calculations described in the
 RULA system to arrive at scores from the measured angles.
-
-## Usage
 
 In terms of code, an example pipeline could look like this:
 
@@ -54,3 +54,14 @@ not sell the software or provide it as part of a commercial service or
 paid support offering.
 
 See [LICENSE](./LICENSE) for details.
+
+## Project Status
+
+This library was developed as part of the
+[Ergo4All research project](https://research.ustp.at/projekte/ergo4all-ergonomie-fuer-alle).
+Originally the code you find in this repository was written in the main
+[Ergo4All repository](https://github.com/fhstp/ergo4all). It was chosen to
+extract it to it's own package to encourage reuse in other projects.
+
+No further development as part of the Ergo4All project is planned at the
+moment.
