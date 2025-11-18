@@ -52,6 +52,50 @@ class RulaSheet {
        hipFlexion = _clampStraightLine(hipFlexion),
        trunkLateralFlexion = _clampRightAngle(trunkLateralFlexion);
 
+  /// Fills out a [RulaSheet] using the given [angles].
+  factory RulaSheet.fromAngles(PoseAngles angles) {
+    Degree angleOf(KeyAngles key) {
+      final angle = angles[key]!;
+      return Degree(angle);
+    }
+
+    Degree angleDiff(KeyAngles a, KeyAngles b) {
+      final angleA = angles[a]!;
+      final angleB = angles[b]!;
+      final diff = (angleA - angleB).abs();
+      return Degree(diff);
+    }
+
+    return RulaSheet(
+      shoulderFlexion: (
+        angleOf(KeyAngles.shoulderFlexionLeft),
+        angleOf(KeyAngles.shoulderFlexionRight),
+      ),
+      shoulderAbduction: (
+        angleOf(KeyAngles.shoulderAbductionLeft),
+        angleOf(KeyAngles.shoulderAbductionRight),
+      ),
+      elbowFlexion: (
+        angleOf(KeyAngles.elbowFlexionLeft),
+        angleOf(KeyAngles.elbowFlexionRight),
+      ),
+      wristFlexion: (
+        angleOf(KeyAngles.wristFlexionLeft),
+        angleOf(KeyAngles.wristFlexionRight),
+      ),
+      neckFlexion: angleOf(KeyAngles.neckFlexion),
+      neckRotation: angleOf(KeyAngles.neckTwist),
+      neckLateralFlexion: angleOf(KeyAngles.neckSideBend),
+      hipFlexion: angleOf(KeyAngles.trunkStoop),
+      trunkRotation: angleOf(KeyAngles.trunkTwist),
+      trunkLateralFlexion: angleOf(KeyAngles.trunkSideBend),
+      legAngleDiff: (
+        angleDiff(KeyAngles.kneeFlexionLeft, KeyAngles.legFlexionLeft),
+        angleDiff(KeyAngles.kneeFlexionRight, KeyAngles.legFlexionRight),
+      ),
+    );
+  }
+
   /// The flexion angles of the upper arm.
   ///
   /// 0° is considered pointing straight down along the torso. Negative values
