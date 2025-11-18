@@ -1,14 +1,8 @@
 import 'dart:math';
 
 import 'package:auto_rula/auto_rula.dart';
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:auto_rula/src/map_ext.dart';
 import 'package:vector_math/vector_math.dart';
-
-extension<Key, Value> on IMap<Key, Value> {
-  IMap<Key, Mapped> mapValues<Mapped>(
-    Mapped Function(Key key, Value value) f,
-  ) => map((key, value) => MapEntry(key, f(key, value)));
-}
 
 Matrix3 _yRotationMatrixFor(Vector3 leftHip, Vector3 rightHip) {
   final angle = 0 - atan2(leftHip.z - rightHip.z, leftHip.x - rightHip.x);
