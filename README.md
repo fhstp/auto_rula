@@ -44,3 +44,13 @@ final RulaSheet sheet = RulaSheet.fromAngles(angles);
 // Finally we can score the sheet.
 final RulaScores scores = RulaScores.calculateFor(sheet);
 ```
+
+## License
+
+All source code in this repository is licensed under the
+**MIT License with Commons Clause**. This means the software is free to
+use, modify, and distribute for non-commercial purposes. However, you may
+not sell the software or provide it as part of a commercial service or
+paid support offering.
+
+See [LICENSE](./LICENSE) for details.
