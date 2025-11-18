@@ -6,11 +6,3 @@ extension PipeExt<T> on T {
     return f(this);
   }
 }
-
-/// Extensions for function composition
-extension ComposeExt<T, U> on U Function(T) {
-  /// Composes this function with [f].
-  V Function(T) compose<V>(V Function(U) f) {
-    return (t) => f(this(t));
-  }
-}
