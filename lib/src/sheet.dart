@@ -56,14 +56,14 @@ class RulaSheet {
   factory RulaSheet.fromAngles(PoseAngles angles) {
     Degree angleOf(KeyAngles key) {
       final angle = angles[key]!;
-      return Degree(angle);
+      return Degree.normalize(angle);
     }
 
     Degree angleDiff(KeyAngles a, KeyAngles b) {
       final angleA = angles[a]!;
       final angleB = angles[b]!;
       final diff = (angleA - angleB).abs();
-      return Degree(diff);
+      return Degree.normalize(diff);
     }
 
     return RulaSheet(

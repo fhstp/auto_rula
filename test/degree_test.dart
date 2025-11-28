@@ -32,6 +32,8 @@ void main() {
       [170.0, 170.0],
       [400.0, 40.0],
       [190.0, -170.0],
+      [-110.0, -110.0],
+      [-190.0, 170.0],
     ],
     (double input, double expected) {
       final actual = Degree.normalize(input);
